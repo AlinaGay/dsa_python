@@ -102,6 +102,6 @@ new_linked_list.insert(0,60)
 new_linked_list.append(10)
 new_linked_list.append(20)
 print(new_linked_list)
-new_linked_list.remove(2)
+new_linked_list.remove(1)
 print(new_linked_list)
       
