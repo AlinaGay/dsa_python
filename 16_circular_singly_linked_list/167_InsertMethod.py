@@ -34,18 +34,33 @@ class CSLinkedList:
 
   def insert(self, index, value):
     new_node = Node(value)
-    temp_node = self.head
-    for _ in range(index-1):
-      temp_node = temp_node.next
-    new_node.next = temp_node.next
-    temp_node.next = new_node
+    if index == 0:
+      if self.length == 0:
+        self.head = new_node
+        self.tail = new_node
+        new_node.next = new_node
+      else:  
+        new_node.next = self.head
+        self.head = new_node
+        self.tail.next = new_node
+    elif index == self.length:
+      self.tail.next = new_node
+      new_node.next = self.head
+      self.tail = new_node    
+    else:  
+      temp_node = self.head
+      for _ in range(index-1):
+        temp_node = temp_node.next
+      new_node.next = temp_node.next
+      temp_node.next = new_node
     self.length += 1    
 
 cslinkedkist = CSLinkedList() 
-cslinkedkist.prepend(40)
-cslinkedkist.prepend(30)
-cslinkedkist.prepend(20)
-cslinkedkist.prepend(10) 
-cslinkedkist.insert(2, 90)
+# cslinkedkist.prepend(40)
+# cslinkedkist.prepend(30)
+# cslinkedkist.prepend(20)
+# cslinkedkist.prepend(10)
+print(cslinkedkist) 
+cslinkedkist.insert(0, 90)
 print(cslinkedkist)  
 print(cslinkedkist.length)         
