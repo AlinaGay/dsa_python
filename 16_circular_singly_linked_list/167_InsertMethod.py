@@ -34,6 +34,8 @@ class CSLinkedList:
 
   def insert(self, index, value):
     new_node = Node(value)
+    if index > self.length or index < 0:
+      raise Exception("Index out of range")
     if index == 0:
       if self.length == 0:
         self.head = new_node
