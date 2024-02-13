@@ -22,7 +22,7 @@ class DoublyLinkedList:
         result += ' <-> '
       temp_node = temp_node.next
     return result 
-
+  
   def preppend(self, value):  
     new_node = Node(value)
     if not self.head:
@@ -32,7 +32,22 @@ class DoublyLinkedList:
       new_node.next = self.head
       self.head.prev = new_node
       self.head = new_node
-    self.length += 1    
+    self.length += 1  
+    
+  def pop(self):
+    if not self.head:
+      return None
+    popped_node = self.tail
+    if self.length == 1:
+      self.head = None
+      self.tail = None
+      popped_node.prev = None
+    else:
+      self.tail = self.tail.prev
+      self.tail.next = None
+      popped_node.prev = None
+    self.length -= 1
+    return popped_node
 
 new_list = DoublyLinkedList()
 new_list.preppend(10)
@@ -40,4 +55,6 @@ new_list.preppend(20)
 new_list.preppend(30)
 new_list.preppend(40)
 new_list.preppend(50)
-print(new_list)    
+print(new_list)  
+print(new_list.pop())
+print(new_list)   
