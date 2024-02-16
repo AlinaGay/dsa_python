@@ -55,8 +55,11 @@ class CircularDoblyLinkedList:
       return "The node has been successfully inseted"             
   
 new_list = CircularDoblyLinkedList()
+
 new_list.createCDLL(10)
 new_list.insertCDLL(0, 0)
 new_list.insertCDLL(1, 1)
 new_list.insertCDLL(2, 2)
+new_list.insertCDLL(3, 3)
+
 print([node.value for node in  new_list])
