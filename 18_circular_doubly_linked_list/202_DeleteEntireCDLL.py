@@ -52,7 +52,21 @@ class CircularDoblyLinkedList:
         newNode.prev = tempNode
         newNode.next.prev = newNode
         tempNode.next = newNode
-      return "The node has been successfully inseted"             
+      return "The node has been successfully inseted"
+  
+  def deleteCDLL(self):
+    if self.head is None:
+      print("There is not any element to delete")
+    else:
+      self.tail.next = None
+      tempNode = self.head
+      while tempNode:  
+        tempNode.prev = None
+        tempNode = tempNode.next
+      self.head = None
+      self.tail = None
+      print("The CDLL has been succassfully deleted")  
+
   
 new_list = CircularDoblyLinkedList()
 
@@ -61,5 +75,6 @@ new_list.insertCDLL(0, 0)
 new_list.insertCDLL(1, 1)
 new_list.insertCDLL(2, 2)
 new_list.insertCDLL(3, 3)
-
+print([node.value for node in  new_list])
+new_list.deleteCDLL()
 print([node.value for node in  new_list])
