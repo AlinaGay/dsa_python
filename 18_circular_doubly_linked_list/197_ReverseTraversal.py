@@ -36,7 +36,7 @@ class CircularDoblyLinkedList:
         self.head.prev = newNode
         self.head = newNode
         self.tail.next = newNode
-      elif location == 1:
+      elif location == -1:
         newNode.next = self.head
         newNode.prev = self.tail
         self.head.prev = newNode
