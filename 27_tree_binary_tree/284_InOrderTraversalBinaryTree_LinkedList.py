@@ -17,6 +17,4 @@ def inOrderTraversal(rootNode):
   print(rootNode.data)
   inOrderTraversal(rootNode.rightChild)    
 
-
-
 inOrderTraversal(newTree)

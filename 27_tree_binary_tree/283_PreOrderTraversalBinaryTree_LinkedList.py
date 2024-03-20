@@ -17,6 +17,4 @@ def preOrderTraversal(rootNode):
   preOrderTraversal(rootNode.leftChild)
   preOrderTraversal(rootNode.rightChild)    
 
-
-
 preOrderTraversal(newTree)

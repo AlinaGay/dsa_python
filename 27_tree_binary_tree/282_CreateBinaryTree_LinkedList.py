@@ -4,4 +4,4 @@ class TreeNode:
     self.leftChild = None
     self.rightChild = None
 
-newTree = TreeNode("Drinks")    
+newTree = TreeNode("Drinks")
