@@ -70,6 +70,10 @@ class TreeNode:
 
 newBT = TreeNode("Drinks")  
 leftChild = TreeNode("Hot")
+tea = TreeNode("Tea")
+coffee = TreeNode("Coffee")
+leftChild.leftChild = tea
+leftChild.rightChild = coffee
 rightChild = TreeNode("Cold")
 newBT.leftChild = leftChild
 newBT.rightChild = rightChild
@@ -87,5 +91,64 @@ def levelOrderTraversal(rootNode):
         customQueue.enqueue(root.value.leftChild)
       if (root.value.rightChild is not None):
         customQueue.enqueue(root.value.rightChild)
+
+def getDeepestNode(rootNode):
+  if not rootNode:
+    return
+  else:
+    customQueue = Queue()
+    customQueue.enqueue(rootNode)
+    while not(customQueue.isEmpty()):
+      root = customQueue.dequeue()
+      if (root.value.leftChild is not None):
+        customQueue.enqueue(root.value.leftChild)
+      if (root.value.rightChild is not None):
+        customQueue.enqueue(root.value.rightChild)
+    deepestNode = root.value
+    return deepestNode
+
+def deleteDeepestNode(rootNode, dNode):
+  if not rootNode:
+    return
+  else:
+    customQueue = Queue()
+    customQueue.enqueue(rootNode)
+    while not(customQueue.isEmpty()):
+      root = customQueue.dequeue()
+      if root.value is dNode:
+        root.value = None
+        return
+      if root.value.rightChild:
+        if root.value.rightChild is dNode:
+          root.value.rightChild = None
+          return
+        else:
+          customQueue.enqueue(root.value.rightChild)
+      if root.value.leftChild:
+        if root.value.leftChild is dNode:
+          root.value.leftChild = None
+          return
+        else:
+          customQueue.enqueue(root.value.leftChild)
+            
+def deleteNodeBT(rootNode, node):
+  if not rootNode:
+    return "The BT does not exist"
+  else:
+    customQueue = Queue()
+    customQueue.enqueue(rootNode)
+    while not(customQueue.isEmpty()):
+      root = customQueue.dequeue()
+      if root.value.data == node:
+        dNode = getDeepestNode(rootNode)
+        root.value.data = dNode.data
+        deleteDeepestNode(rootNode, dNode)
+        return "The node has been successfully deleted"
+      if (root.value.leftChild is not None):
+        customQueue.enqueue(root.value.leftChild)
+      if (root.value.rightChild is not None):
+        customQueue.enqueue(root.value.rightChild)
+    return "Failed to delete"     
      
+deleteNodeBT(newBT, "Tea")
 levelOrderTraversal(newBT)
