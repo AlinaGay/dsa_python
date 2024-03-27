@@ -1,8 +1,8 @@
 def capitalizeFirst(arr):
-    for el in arr:
-        first_letter = el[0].capitalize()
-        rest = el[1:]
-        el = first_letter + rest
-    return arr    
+    result = []
+    if len(arr) == 0:
+        return result
+    result.append(arr[0][0].capitalize() + arr[0][1:])
+    return result + capitalizeFirst(arr[1:])
 
 print(capitalizeFirst(['car', 'taco', 'banana']))            
