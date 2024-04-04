@@ -12,3 +12,8 @@ print("------------------------------------")
 tempList = [20,30,40]
 arr_1.fromlist(tempList)
 print(arr_1)
+
+#7 remove any array element usingremove() method
+print("------------------------------------")
+arr_1.remove(20)
+print(arr_1)
