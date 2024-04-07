@@ -26,3 +26,8 @@ print(arr_1)
 #9 fetch any element through its index using index() method
 print("------------------------------------")
 print(arr_1.index(30))
+
+#10 reverse a python array using everse() method
+print("------------------------------------")
+arr_1.reverse()
+print(arr_1)
