@@ -31,3 +31,30 @@ print(arr_1.index(30))
 print("------------------------------------")
 arr_1.reverse()
 print(arr_1)
+
+#11 get array buffer information through buffer_info() method
+print("------------------------------------")
+print(arr_1.buffer_info())
+
+#12 check for number of occurances of an element using count() method
+print("------------------------------------")
+print(arr_1.count(11))
+
+#13 convert array to string using tobytes() method
+print("------------------------------------")
+strTemp = arr_1.tobytes()
+print(strTemp)
+
+#14 append a string to char rray using fromstring() method
+print("------------------------------------")
+ints = array('i')
+ints.frombytes(strTemp)
+print(ints)
+
+#15 convert array to a python list using tolist() method
+print("------------------------------------")
+print(ints.tolist())
+
+#16 slice lements from an array
+print("------------------------------------")
+print(arr_1[1:4])
