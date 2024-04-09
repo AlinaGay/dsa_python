@@ -4,6 +4,7 @@ class AVLNode:
     self.leftChild = None
     self.rightChild = None
     self.height = 1
+
 class Node:
   def __init__(self, value=None):
     self.value = value
@@ -22,6 +23,7 @@ class LinkedList:
     while curNode:
       yield curNode
       curNode = curNode.next
+
 class Queue:
   def __init__(self):
     self.linkedList = LinkedList()
@@ -106,22 +108,57 @@ def searchNode(rootNode, nodeValue):
     else:
       searchNode(rootNode.rightChild, nodeValue)    
 
+def getHeight(rootNode):
+  if not rootNode:
+    return 0
+  return rootNode.height
 
-newAVl = AVLNode(70)
-node_50 = AVLNode(50) 
-node_90 = AVLNode(90)
-newAVl.leftChild = node_50
-newAVl.rightChild = node_90
-node_30 = AVLNode(30) 
-node_60 = AVLNode(60)
-node_80 = AVLNode(80)
-node_100 = AVLNode(100)  
-node_50.leftChild = node_30
-node_50.rightChild = node_60 
-node_90.leftChild = node_80
-node_90.rightChild = node_100 
-node_20 = AVLNode(20)
-node_40 = AVLNode(40)            
-node_30.leftChild = node_20
-node_30.rightChild = node_40
+def rightRotate(disbalanceNode):
+  newRoot = disbalanceNode.leftChild
+  disbalanceNode.leftChild = disbalanceNode.leftChild.rightChild
+  newRoot.rightChild = disbalanceNode
+  disbalanceNode.height = 1 + max(getHeight(disbalanceNode.leftChild), getHeight(disbalanceNode.rightChild))
+  newRoot.height = 1 + max(getHeight(newRoot.leftChild), getHeight(newRoot.rightChild))
+  return newRoot
 
+def leftRotate(disbalanceNode):
+  newRoot = disbalanceNode.rightChild
+  disbalanceNode.rightChild = disbalanceNode.rightChild.leftChild
+  newRoot.leftChild = disbalanceNode
+  disbalanceNode.height = 1 + max(getHeight(disbalanceNode.leftChild), getHeight(disbalanceNode.rightChild))
+  newRoot.height = 1 + max(getHeight(newRoot.leftChild), getHeight(newRoot.rightChild))
+  return newRoot
+
+def getBalance(rootNode):
+  if not rootNode:
+    return 0
+  return getHeight(rootNode.leftChild) - getHeight(rootNode.rightChild)
+
+def insertNode(rootNode, nodeValue):
+  if not rootNode:
+    return AVLNode(nodeValue)
+  elif nodeValue < rootNode.data:
+    rootNode.leftChild = insertNode(rootNode.leftChild, nodeValue)
+  else:
+    rootNode.rightChild = insertNode(rootNode.rightChild, nodeValue)
+
+  rootNode.height = 1 + max(getHeight(rootNode.leftChild), getHeight(rootNode.rightChild))
+  balance = getBalance(rootNode)
+
+  if balance > 1 and nodeValue < rootNode.leftChild.data:
+    return rightRotate(rootNode)
+  if balance > 1 and nodeValue > rootNode.leftChild.data:
+    rootNode.leftChild = leftRotate(rootNode.leftChild)
+    return rightRotate(rootNode)
+  if balance < -1 and nodeValue > rootNode.rightChild.data:
+    return leftRotate(rootNode)
+  if balance < -1 and nodeValue < rootNode.rightChild.data:
+    rootNode.rightChild = rightRotate(rootNode.rightChild)
+    return leftRotate(rootNode)
+  return rootNode
+
+newAVl = AVLNode(5)
+newAVl = insertNode(newAVl, 10)
+newAVl = insertNode(newAVl, 15)
+newAVl = insertNode(newAVl, 20)
+levelOrderTraversal(newAVl)
