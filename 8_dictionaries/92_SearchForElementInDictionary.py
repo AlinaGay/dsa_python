@@ -6,4 +6,4 @@ def searchDict(dict, value):
       return key, value
   return "The value does not exist"
 
-print(searchDict(myDict, 37))  
+print(searchDict(myDict, 37))
