@@ -12,5 +12,18 @@ print(myDict.get('age', 27))
 print(myDict)
 print('-------------------------------')
 
+print(myDict.get('city'))
+print('-------------------------------')
+
+print(myDict.items())
+print('-------------------------------')
+
+print(myDict.keys())
+print('-------------------------------')
+
+print(myDict.popitem())
+print(myDict)
+print('-------------------------------')
+
 myDict.clear()
 print(myDict)
