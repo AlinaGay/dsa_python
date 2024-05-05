@@ -25,5 +25,9 @@ print(myDict.popitem())
 print(myDict)
 print('-------------------------------')
 
+print(myDict.setdefault('name','added'))
+print(myDict)
+print('-------------------------------')
+
 myDict.clear()
 print(myDict)
