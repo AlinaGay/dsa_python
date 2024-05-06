@@ -29,5 +29,9 @@ print(myDict.setdefault('name','added'))
 print(myDict)
 print('-------------------------------')
 
+print(myDict.setdefault('name1','added'))
+print(myDict)
+print('-------------------------------')
+
 myDict.clear()
 print(myDict)
