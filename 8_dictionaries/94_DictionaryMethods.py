@@ -21,6 +21,9 @@ print('-------------------------------')
 print(myDict.keys())
 print('-------------------------------')
 
+print(myDict.values())
+print('-------------------------------')
+
 print(myDict.popitem())
 print(myDict)
 print('-------------------------------')
@@ -30,6 +33,19 @@ print(myDict)
 print('-------------------------------')
 
 print(myDict.setdefault('name1','added'))
+print(myDict)
+print('-------------------------------')
+
+print(myDict.pop('name2','not'))
+print(myDict)
+print('-------------------------------')
+
+print(myDict.pop('name1','not'))
+print(myDict)
+print('-------------------------------')
+
+new_dict = {'a':1, 'b':2, 'c':3}
+print(myDict.update(new_dict))
 print(myDict)
 print('-------------------------------')
 
