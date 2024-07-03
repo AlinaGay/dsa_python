@@ -40,8 +40,20 @@ def heapifyTreeInsert(rootNode, index, heapType):
       rootNode.customList[parentIndex] = temp
     heapifyTreeInsert(rootNode, parentIndex, heapType)  
 
+def insertNode(rootNode, nodeValue, heapType):
+  if rootNode.heapSize + 1 == rootNode.maxSize:
+    return "The Binary Heap is Full"
+  rootNode.customList[rootNode.heapSize + 1] = nodeValue
+  rootNode.heapSize += 1
+  heapifyTreeInsert(rootNode, rootNode.heapSize, heapType)
+  return "The Value was successully inserted"    
+
 
 
 newBH = Heap(5)
+insertNode(newBH, 4, "Max")
+insertNode(newBH, 5, "Max")
+insertNode(newBH, 2, "Max")
+insertNode(newBH, 1, "Max")
 print(peekOfHeap(newBH))
 print(sizeOfHeap(newBH)) 
