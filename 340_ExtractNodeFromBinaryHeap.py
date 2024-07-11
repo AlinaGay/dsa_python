@@ -5,6 +5,7 @@ def heapifyTreeExtract(rootNode, index, heapType):
 
   if rootNode.heapSize < leftIndex:
     return
+  
   elif rootNode.heapSize == leftIndex:
     if heapType == "Min":
       if rootNode.cutomList[index] > rootNode.cutomList[leftIndex]:
@@ -18,4 +19,24 @@ def heapifyTreeExtract(rootNode, index, heapType):
         rootNode.cutomList[index] = rootNode.cutomList[leftIndex]
         rootNode.cutomList[leftIndex] = temp
       return
+  else:
+    if heapType == "Min":
+      if rootNode.customList[leftIndex] < rootNode.customList[rightIndex]:
+        swapChild = leftIndex
+      else:
+        swapChild = rightIndex
+      if rootNode.customList[index] > rootNode.customList[swapChild]:
+        temp = rootNode.customList[index]
+        rootNode.customList[index] = rootNode.customList[swapChild]
+        rootNode.customList[swapChild] = temp
+    else:      
+      if rootNode.customList[leftIndex] > rootNode.customList[rightIndex]:
+        swapChild = leftIndex
+      else:
+        swapChild = rightIndex
+      if rootNode.customList[index] > rootNode.customList[swapChild]:
+        temp = rootNode.customList[index]
+        rootNode.customList[index] = rootNode.customList[swapChild]
+        rootNode.customList[swapChild] = temp
+  heapifyTreeExtract(rootNode, swapChild, heapType)        
 
