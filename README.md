@@ -1,3 +1,4 @@
-# Data Structures and Algorithms
+## Data Structures and Algorithms
 
-## 3 Section: Arrays
+### 3 Section: Arrays
+### 4 Section: Lists
