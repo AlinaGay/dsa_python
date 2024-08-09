@@ -3,3 +3,4 @@
 ### 3 Section: Arrays
 ### 4 Section: Lists
 ### 8 Section: Dictionaries
+### 10 Section: Tuples
