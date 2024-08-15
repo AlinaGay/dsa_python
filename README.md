@@ -5,4 +5,5 @@
 ### 8 Section: Dictionaries
 ### 10 Section: Tuples
 ### 12 Section: OOP
-### 13 Sectioon: Linked List
+### 13 Section: Linked List
+### 14 Section: Exersices Linked List
