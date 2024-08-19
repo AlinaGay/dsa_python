@@ -10,3 +10,4 @@
 ### 15 Section: Exercises Single Linked List
 ### 16 Section: Circular Singly Linked List
 ### 18 Section: Doubly Linked List
+### 19 Section: Circular Doubly Linked List
