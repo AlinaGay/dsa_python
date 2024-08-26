@@ -17,3 +17,4 @@
 ### 23 Section: Stack, Queue Questions
 ### 24 Section: Recursion
 ### 25 Section: Recursion Question
+### 27 Section: Binary Tree
