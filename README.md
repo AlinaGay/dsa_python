@@ -18,3 +18,4 @@
 ### 24 Section: Recursion
 ### 25 Section: Recursion Question
 ### 27 Section: Binary Tree
+### 28 Section: Binary Search Tree
