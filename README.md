@@ -19,3 +19,4 @@
 ### 25 Section: Recursion Question
 ### 27 Section: Binary Tree
 ### 28 Section: Binary Search Tree
+### 29 Section: AVL Trees
